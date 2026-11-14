@@ -1,0 +1,27 @@
+#dual-subtitle-container {
+  all: initial;
+  position: fixed;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.15em;
+  inline-size: max-content;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.3em 0.6em;
+  border-radius: 0.4em;
+  background: rgb(0 0 0 / 82%);
+  font: 600 var(--dsm-size, 20px)/1.3 Arial, sans-serif;
+  text-align: center;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  color: white;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+#dual-subtitle-container[hidden],
+#dual-subtitle-container > [hidden] { display: none !important; }
+#dual-subtitle-container[data-dragging] { cursor: grabbing; }
+#dual-subtitle-container > :first-child { color: var(--dsm-first, #fff); }
+#dual-subtitle-container > :last-child { color: var(--dsm-second, #ffe082); }

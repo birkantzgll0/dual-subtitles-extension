@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Dual Subtitle Master",
+  "version": "1.0.0",
+  "description": "HTML5 video oynatıcılarında sürüklenebilir İngilizce ve Türkçe altyazılar.",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "all_frames": true,
+      "css": [
+        "styles.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
