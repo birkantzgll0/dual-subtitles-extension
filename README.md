@@ -1,24 +1,17 @@
 # Dual Subtitle Master
 
-Chrome için Manifest V3 eklentisi. İngilizce ve Türkçe HTML5 altyazı parçalarını tek bir sürüklenebilir kutuda gösterir. İşleme tarayıcıda gerçekleşir. Eklenti bir çeviri servisi kullanmaz ve dışarıya veri göndermez. Tarayıcı, oynatıcının tanımladığı altyazı dosyalarını kendi normal medya yükleme süreciyle isteyebilir.
+Brave ve Chrome için Manifest V3 çift altyazı eklentisi. Tamamlayıcı ve çift altyazı modları, görünüm ayarları, kelime sözlüğü ve CSV dışa aktarma içerir.
 
 ## Kurulum
 
-1. Chrome'da `chrome://extensions` sayfasını aç.
-2. **Geliştirici modu** seçeneğini etkinleştir.
-3. **Paketlenmemiş öğe yükle** düğmesiyle `manifest.json` dosyasının bulunduğu klasörü seç.
-4. Açık video sekmesini yenile. Altyazı kutusu göründüğünde sürükleyerek konumlandır.
+Depoyu indirip arşivi ayıklayın. `brave://extensions` veya `chrome://extensions` sayfasından Geliştirici modu → Paketlenmemiş öğe yükle ile `manifest.json` içeren klasörü seçin. Açık video sekmesini yenileyin.
 
-## Altyazı kaynakları
+## Altyazı ve veri kullanımı
 
-- HTML5 `TextTrack` üzerinden erişilebilen İngilizce ve Türkçe parçalar, kendi zaman damgalarına göre aynı kutuda gösterilir. Yalnızca bir dil mevcutsa tek satır görünür.
-- YouTube, Netflix ve Disney+ için ekranda oluşturulan altyazı öğeleri de izlenir. Bu yol, sitenin DOM'a yazdığı metinle sınırlıdır. Site yalnızca seçili dili yayımlıyorsa ikinci satır için erişilebilir ikinci bir parça gerekir. Bu seçiciler oynatıcı güncellemelerinden etkilenebilir.
-- Kutunun sınırları video dikdörtgeniyle görünür pencere alanının kesişimine göre hesaplanır. Tam ekran kapsayıcı içinde çalışabilir. Doğrudan video öğesinin tam ekranı ve tarayıcının yerleşik Resim İçinde Resim penceresi bu kutuyu gösteremez.
+Eklenti oynatıcının erişime açtığı altyazı metnini okur. İkinci satır veya sözlük karşılığı gerektiğinde metni Google Translate web uç noktasına gönderir. Kelime kayıtları yerel depolamada tutulur. Stil tercihleri tarayıcının eşitleme depolamasına yazılır.
 
-## Ayarlar
-
-Konum, Chrome'un yerel eklenti depolamasına otomatik kaydedilir. İleride bir ayarlar arayüzü, aynı depolamadaki `languages` (iki farklı dil kodu), `size` (12–48 piksel), `firstColor` ve `secondColor` (altı haneli hex renk) alanlarını kullanabilir.
+YouTube dışındaki oynatıcılarda destek, altyazının erişilebilir olmasına bağlıdır. v1.3.3 Brave’de canlı arayüz testinden geçmedi.
 
 ## Lisans
 
-MIT © Birkan Tazegül (@birkantzgll0).
+MIT © Birkan Tazegül.

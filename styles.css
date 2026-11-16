@@ -1,4 +1,4 @@
-#dual-subtitle-container {
+#dual-subtitle-master-container {
   all: initial;
   position: fixed;
   z-index: 2147483647;
@@ -20,8 +20,88 @@
   touch-action: none;
   user-select: none;
 }
-#dual-subtitle-container[hidden],
-#dual-subtitle-container > [hidden] { display: none !important; }
-#dual-subtitle-container[data-dragging] { cursor: grabbing; }
-#dual-subtitle-container > :first-child { color: var(--dsm-first, #fff); }
-#dual-subtitle-container > :last-child { color: var(--dsm-second, #ffe082); }
+#dual-subtitle-master-container[hidden],
+#dual-subtitle-master-container > [hidden] { display: none !important; }
+#dual-subtitle-master-container[data-dragging] { cursor: grabbing; }
+#dual-subtitle-master-container > :first-child { color: var(--dsm-first, #fff); }
+#dual-subtitle-master-container > :nth-child(2) { color: var(--dsm-second, #ffe082); }
+
+#dual-subtitle-master-container .dsm-translation { font: 13px/1.35 system-ui, sans-serif; }
+#dual-subtitle-master-container .dsm-translation button {
+  margin: 2px;
+  padding: 3px 8px;
+  border: 1px solid #c3d6df;
+  border-radius: 4px;
+  background: #17242a;
+  color: #fff;
+  cursor: pointer;
+}
+#dual-subtitle-master-container .dsm-translation button[hidden] { display: none; }
+
+html[data-dsm-youtube] .ytp-caption-window-container { display: none !important; }
+
+[data-dsm-hide-native] { visibility: hidden !important; }
+#dual-subtitle-master-container[data-mode="complementary"] .dsm-translation { display: none; }
+
+video[data-dsm-hide-cues]::cue { color: transparent !important; background: transparent !important; text-shadow: none !important; }
+#dual-subtitle-master-container {
+  font-size: var(--dsm-sync-size, var(--dsm-size, 20px));
+  background: rgb(0 0 0 / var(--dsm-sync-opacity, 82%));
+}
+#dual-subtitle-master-container > :first-child { color: var(--dsm-sync-color, var(--dsm-first, #fff)); }
+#dual-subtitle-master-container > :nth-child(2) { color: var(--dsm-sync-color, var(--dsm-second, #ffe082)); }
+#dual-subtitle-master-container [data-dsm-word] { cursor: help; }
+#dual-subtitle-master-container [data-dsm-word]:is(:hover, :focus-visible) { text-decoration: underline; }
+#dual-subtitle-master-container .dsm-dictionary {
+  position: fixed; inset: auto; margin: 0; padding: 8px 10px;
+  max-width: min(250px, 95vw); border: 1px solid #64748b; border-radius: 8px;
+  background: #fff; color: #172033; font: 14px system-ui; white-space: normal;
+}
+#dual-subtitle-master-container[data-theme="dark"] .dsm-dictionary { background: #172033; color: #fff; }
+.dsm-dictionary button { margin-inline-start: 8px; cursor: pointer; }
+
+.dsm-popup {
+  width: 360px; margin: 0; color-scheme: dark; color: #eef2ff;
+  font: 14px/1.45 system-ui, sans-serif; background: #0f172a;
+}
+.dsm-popup main {
+  padding: 16px;
+  background: radial-gradient(ellipse at 90% 0, #312e8155, transparent 55%);
+}
+.dsm-popup h1 { margin: 0 0 14px; font-size: 19px; }
+.dsm-popup .segments { display: grid; grid-template-columns: auto 1fr; gap: 4px; padding: 4px; border: 1px solid #334155; border-radius: 12px; background: #1e293b99; }
+.dsm-popup button, .dsm-popup select { font: inherit; color: inherit; cursor: pointer; }
+.dsm-popup button { padding: 7px 10px; border: 1px solid #475569; border-radius: 8px; background: #263449; }
+.dsm-popup .segments button { border: 1px solid transparent; background: transparent; }
+.dsm-popup .segments [aria-pressed="true"] { border-color: #818cf8; background: #4338ca; color: white; box-shadow: 0 0 12px #6366f14d; }
+.dsm-popup :focus-visible { outline: 2px solid #a5b4fc; outline-offset: 2px; }
+.dsm-popup section { margin-top: 12px; }
+.dsm-popup label { display: block; margin: 10px 0; }
+.dsm-popup select {
+  appearance: none; display: block; width: 100%; margin-top: 4px; padding: 7px 28px 7px 9px;
+  border-radius: 8px; border: 1px solid #475569; background: #1e293b;
+  background-image: linear-gradient(45deg, transparent 50%, #c7d2fe 50%), linear-gradient(135deg, #c7d2fe 50%, transparent 50%);
+  background-position: right 14px center, right 9px center;
+  background-size: 5px 5px; background-repeat: no-repeat;
+}
+.dsm-popup .switch, .dsm-popup .field-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.dsm-popup .switch { position: relative; cursor: pointer; }
+.dsm-popup .switch input { position: absolute; inset-inline-end: 0; opacity: 0; width: 40px; height: 23px; margin: 0; }
+.dsm-popup .switch-track { flex: 0 0 40px; height: 23px; border-radius: 20px; background: #475569; transition: background .18s; }
+.dsm-popup .switch-track::after { content: ""; display: block; width: 17px; height: 17px; margin: 3px; border-radius: 50%; background: white; transition: transform .18s; }
+.dsm-popup .switch input:checked + .switch-track { background: #6366f1; }
+.dsm-popup .switch input:checked + .switch-track::after { transform: translateX(17px); }
+.dsm-popup .switch input:focus-visible + .switch-track { outline: 2px solid #a5b4fc; outline-offset: 2px; }
+.dsm-popup input[type=range] { display: block; width: 100%; margin: 6px 0; accent-color: #a5b4fc; }
+.dsm-popup input[type=range]::-webkit-slider-runnable-track { border-radius: 10px; background: #334155; }
+.dsm-popup output { color: #c7d2fe; }
+.dsm-popup .empty { padding: 18px 12px; text-align: center; color: #cbd5e1; border: 1px dashed #475569; border-radius: 10px; }
+.dsm-popup ul { display: grid; gap: 8px; padding: 0; list-style: none; max-height: 285px; overflow-y: auto; }
+.dsm-popup li { position: relative; padding: 10px 42px 10px 10px; border: 1px solid #334155; border-radius: 10px; background: #1e293b; overflow-wrap: anywhere; }
+.dsm-popup .meaning { display: inline-block; margin-inline-start: 6px; padding: 1px 6px; border-radius: 6px; color: #dbeafe; background: #1e40af; }
+.dsm-popup .context { margin: 5px 0 0; color: #cbd5e1; font-style: italic; }
+.dsm-popup .trash { position: absolute; top: 8px; right: 8px; padding: 3px 5px; background: #7f1d1d; border-color: #ef4444; opacity: 0; transition: opacity .15s; }
+.dsm-popup li:is(:hover, :focus-within) .trash { opacity: 1; }
+@media (hover: none) { .dsm-popup .trash { opacity: 1; } }
+.dsm-popup button:disabled { opacity: .55; cursor: default; }
+.dsm-popup #status:empty { display: none; }

@@ -1,25 +1,36 @@
 {
   "manifest_version": 3,
   "name": "Dual Subtitle Master",
-  "version": "1.0.0",
-  "description": "HTML5 video oynatıcılarında sürüklenebilir İngilizce ve Türkçe altyazılar.",
+  "version": "1.3.3",
+  "description": "YouTube ve tüm video platformları için çift dilli altyazı eklentisi.",
   "permissions": [
+    "activeTab",
     "storage"
   ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "<all_urls>"
       ],
-      "all_frames": true,
       "css": [
         "styles.css"
       ],
       "js": [
+        "youtube-language.js",
         "content.js"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "all_frames": true
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }

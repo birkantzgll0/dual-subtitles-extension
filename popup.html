@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dual Subtitle Master</title><link rel="stylesheet" href="styles.css"></head>
+<body class="dsm-popup">
+<main>
+  <h1>Dual Subtitle Master</h1>
+  <nav class="segments" aria-label="Panel">
+    <button id="settingsTab" type="button" aria-pressed="true" aria-controls="settingsPanel">Ayarlar</button>
+    <button id="wordsTab" type="button" aria-pressed="false" aria-controls="wordsPanel">Kaydedilen Kelimelerim</button>
+  </nav>
+  <section id="settingsPanel">
+    <label class="switch"><span>Çeviriyi başlat</span><input id="enabled" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
+    <label>Altyazı modu<select id="mode"><option value="complementary">Tamamlayıcı altyazı</option><option value="dual">Çift altyazı</option></select></label>
+    <label>Hedef dil<select id="target"><option value="auto">Otomatik zıt dil</option><option value="tr">Türkçe</option><option value="en">İngilizce</option></select></label>
+    <label class="switch"><span>Koyu sözlük teması</span><input id="dark" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
+    <label><span class="field-heading">Yazı boyutu <output id="fontValue" for="font"></output></span><input id="font" type="range" min="14" max="28"></label>
+    <label class="field-heading">Metin rengi <input id="color" type="color"></label>
+    <label class="switch"><span>Siyah arka plan</span><input id="background" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
+    <label><span class="field-heading">Kutu opaklığı <output id="opacityValue" for="opacity"></output></span><input id="opacity" type="range" min="0" max="100"></label>
+  </section>
+  <section id="wordsPanel" hidden>
+    <p id="empty" class="empty" hidden>Henüz kelime kaydedilmedi 📚</p>
+    <ul id="words" aria-label="Kaydedilen kelimeler"></ul>
+    <button id="export" type="button" disabled>CSV Olarak İndir</button>
+  </section>
+  <p id="status" role="status"></p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
