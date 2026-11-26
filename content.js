@@ -2,7 +2,7 @@
   "use strict";
 
   const defaults = {
-    translationEnabled: true, subtitleMode: "complementary", targetLanguage: "auto",
+    googleTranslationEnabled: false, subtitleMode: "complementary", targetLanguage: "auto",
     languages: ["en", "tr"], size: 20, firstColor: "#ffffff",
     secondColor: "#ffe082", position: { x: 0.5, y: 0.92 }
   };
@@ -558,7 +558,7 @@
   function update() {
     frame = 0;
     selectVideo();
-    if (!video || !settings.translationEnabled) {
+    if (!video || !settings.googleTranslationEnabled) {
       closeDictionary();
       freshCaptionNodes([]);
       setTranslationKey("");
@@ -684,8 +684,8 @@
 
   function configure(values) {
     const { languages, size, firstColor, secondColor, position,
-      translationEnabled, subtitleMode, targetLanguage } = values;
-    if (typeof translationEnabled === "boolean") settings.translationEnabled = translationEnabled;
+      googleTranslationEnabled, subtitleMode, targetLanguage } = values;
+    if (typeof googleTranslationEnabled === "boolean") settings.googleTranslationEnabled = googleTranslationEnabled;
     if (["dual", "complementary"].includes(subtitleMode)) settings.subtitleMode = subtitleMode;
     if (["auto", "en", "tr"].includes(targetLanguage) && targetLanguage !== settings.targetLanguage) {
       settings.targetLanguage = targetLanguage;

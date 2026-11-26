@@ -4,7 +4,7 @@ const $ = id => document.getElementById(id);
 const local = chrome.storage.local;
 const sync = chrome.storage.sync;
 const fields = [
-  ["enabled", local, "translationEnabled", true],
+  ["enabled", local, "googleTranslationEnabled", false],
   ["mode", local, "subtitleMode", "complementary"],
   ["target", local, "targetLanguage", "auto"],
   ["dark", sync, "dsmDark", false],

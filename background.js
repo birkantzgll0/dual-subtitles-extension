@@ -8,7 +8,10 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
   url.search = new URLSearchParams({
     client: "gtx", sl: message.source, tl: message.target, dt: "t", q: message.text
   });
-  fetch(url, { credentials: "omit", referrerPolicy: "no-referrer", signal: AbortSignal.timeout(8000) })
+  chrome.storage.local.get({ googleTranslationEnabled: false }).then(({ googleTranslationEnabled }) => {
+    if (googleTranslationEnabled !== true) throw Error("Google çevirisi kapalı.");
+    return fetch(url, { credentials: "omit", referrerPolicy: "no-referrer", signal: AbortSignal.timeout(8000) });
+  })
     .then(response => {
       if (!response.ok) throw Error("Google Translate HTTP " + response.status);
       return response.json();

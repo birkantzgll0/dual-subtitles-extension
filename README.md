@@ -8,7 +8,7 @@ Depoyu indirip arşivi ayıklayın. `brave://extensions` veya `chrome://extensio
 
 ## Altyazı ve veri kullanımı
 
-Eklenti oynatıcının erişime açtığı altyazı metnini okur. İkinci satır veya sözlük karşılığı gerektiğinde metni Google Translate web uç noktasına gönderir. Kelime kayıtları yerel depolamada tutulur. Stil tercihleri tarayıcının eşitleme depolamasına yazılır.
+Eklenti oynatıcının erişime açtığı altyazı metnini okur. Google ile çevir seçeneği başlangıçta kapalıdır. Kullanıcı açtığında, ikinci satır veya sözlük karşılığı gerektiğinde metni Google Translate web uç noktasına gönderir. Kelime kayıtları yerel depolamada tutulur. Stil tercihleri tarayıcının eşitleme depolamasına yazılır.
 
 YouTube dışındaki oynatıcılarda destek, altyazının erişilebilir olmasına bağlıdır. v1.3.3 Brave’de canlı arayüz testinden geçmedi.
 

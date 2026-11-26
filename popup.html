@@ -9,7 +9,8 @@
     <button id="wordsTab" type="button" aria-pressed="false" aria-controls="wordsPanel">Kaydedilen Kelimelerim</button>
   </nav>
   <section id="settingsPanel">
-    <label class="switch"><span>Çeviriyi başlat</span><input id="enabled" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
+    <label class="switch"><span>Google ile çevir</span><input aria-describedby="translation-disclosure" id="enabled" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
+    <p id="translation-disclosure">Açtığında çeviri için altyazılar ve sözlükte baktığın kelimeler Google Translate’e gönderilir.</p>
     <label>Altyazı modu<select id="mode"><option value="complementary">Tamamlayıcı altyazı</option><option value="dual">Çift altyazı</option></select></label>
     <label>Hedef dil<select id="target"><option value="auto">Otomatik zıt dil</option><option value="tr">Türkçe</option><option value="en">İngilizce</option></select></label>
     <label class="switch"><span>Koyu sözlük teması</span><input id="dark" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label>
